@@ -11,6 +11,7 @@ describe('status board', () => {
     expect(res.status).toBe(200);
     expect(html).toContain('TEST-MARKER');
     expect(html).toContain('2026-10-28');
+    expect(html).toMatch(/<a href="\/digest\/2026-10-28">2026-10-28<\/a>[^<]*ok \d+ · retry \d+ · fail \d+/);
   });
 
   it('health answers with the lane id', async () => {
