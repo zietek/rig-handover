@@ -23,13 +23,10 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v5
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
       - uses: actions/setup-node@v5
         with:
           node-version: 22
-      - run: pnpm install
+      - run: npm install -g pnpm@10 && pnpm install
       - run: scripts/preview.sh /digest/2026-10-28 _site/index.html
         env:
           LANE_MARKER: ${{ inputs.marker }}
